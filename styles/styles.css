@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1rem;
+    color: #404040;
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+li {
+    margin-left: 1em;
+}
+
+a {
+    color: gray
+}
+
+a:hover,
+a:focus {
+    color: black
+}
+
+main {
+    margin: 50px 10% 0 10%;
+}
+
+main p {
+    text-align: justify;
+}
