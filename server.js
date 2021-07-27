@@ -7,6 +7,17 @@ const server = http.createServer((req, res) => {
     req.url === '/' ? fileName = 'index.html' : fileName = req.url
     
     let filePath = path.join(__dirname, 'public', fileName)
+
+    const extensionContentPairs = {
+        '.html' : 'text/html',
+        '.js' : 'text/javascript',
+        '.css' : 'text/css'
+    }
+
+    let extName = path.extname(filePath)
+    let contentType = extensionContentPairs[extName]
+    console.log('FILE EXTENSION', contentType)
+
     
     fs.readFile(filePath, (err, data) => {
         if (err) {
@@ -20,7 +31,7 @@ const server = http.createServer((req, res) => {
                 res.end(`Server Error: ${err.code}`)
             }
         } else {
-            res.writeHead(200, {'content-type':'text/html'})
+            res.writeHead(200, {'content-type': contentType})
             res.end(data)
         }
     })
